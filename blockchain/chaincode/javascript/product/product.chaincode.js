@@ -29,7 +29,7 @@ class Product extends Contract {
   async InitLedger(ctx) {
     const products = [
       {
-        ID: "PNRS1001",
+        ID: "asset1",
         Name: "Example Product1",
         Status: "Order Created",
         Description: "Example product description",
@@ -39,6 +39,8 @@ class Product extends Contract {
     for (const product of products) {
       await ctx.stub.putState(product.ID, Buffer.from(jsonStringify(product)));
     }
+
+    console.log('Ledger initialized successfully');
   }
 
   // CreateProduct issues a new product to the world state with given details.
@@ -130,5 +132,4 @@ class Product extends Contract {
   }
 }
 
-module.exports.Product = Product;
-module.exports.contracts = [Product];
+module.exports = Product;
