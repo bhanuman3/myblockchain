@@ -93,8 +93,6 @@ class Product extends Contract {
       throw new Error(`The product ${id} does not exist`);
     }
 
-    
-
     // overwriting original product with new product
     const updatedProduct = {
       ID: id,
